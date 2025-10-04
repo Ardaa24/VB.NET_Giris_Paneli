@@ -8,11 +8,14 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Giris_Panel
 {
+
     public partial class Signup : Form
     {
+        SqlConnection conn = GirisPanel.conn;
         public Signup()
         {
             InitializeComponent();
@@ -146,6 +149,9 @@ namespace Giris_Panel
             mouse_y = e.Y;
         }
 
-     
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
