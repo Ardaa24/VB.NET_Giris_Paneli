@@ -151,7 +151,10 @@ namespace Giris_Panel
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("Insert into Info (username,pass,re_pass,e_mail,phone) values ('"+Cryptology.Encryption(txtUsername.Text,2)+"', '"+ Cryptology.Encryption(txtRePassword.Text,2)+"', '"+ Cryptology.Encryption(txtRePassword.Text,2)+"', '"+ Cryptology.Encryption(txtEmail.Text,2)+"', '"+ Cryptology.Encryption(txtPhone.Text,2)+"')", conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }
