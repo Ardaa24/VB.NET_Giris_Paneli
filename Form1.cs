@@ -14,7 +14,7 @@ namespace Giris_Panel
     public partial class GirisPanel : Form
     {
 
-        SqlConnection conn = new SqlConnection("Data Source=DESKTOP-29MDJI6\\SQLEXPRESS; initial Catalog=GirisPaneli; Integrated Security=True");
+      public static  SqlConnection conn = new SqlConnection("Data Source=DESKTOP-29MDJI6\\SQLEXPRESS; initial Catalog=GirisPaneli; Integrated Security=True");
         public GirisPanel()
         {
             InitializeComponent();
