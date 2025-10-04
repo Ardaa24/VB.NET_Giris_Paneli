@@ -17,6 +17,14 @@ namespace Giris_Panel
         {
             InitializeComponent();
         }
+        bool move;
+        int mouse_x;
+        int mouse_y;
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         private void txtUsername_Enter(object sender, EventArgs e)
         {
@@ -117,5 +125,27 @@ namespace Giris_Panel
                 txtPhone.ForeColor = Color.Silver;
             }
         }
+
+        private void Signup_MouseUp(object sender, MouseEventArgs e)
+        {
+            move = false;
+        }
+
+        private void Signup_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (move)
+            {
+                this.SetDesktopLocation(MousePosition.X - mouse_x, MousePosition.Y - mouse_y);
+            }
+        }
+
+        private void Signup_MouseDown(object sender, MouseEventArgs e)
+        {
+            move = true;
+            mouse_x = e.X;
+            mouse_y = e.Y;
+        }
+
+     
     }
 }
