@@ -103,7 +103,7 @@ namespace Giris_Panel
 
             while (rdr.Read())
             {
-                if (username == rdr["username"].ToString().TrimEnd() && password== rdr["pass"].ToString().TrimEnd())
+                if (username == Cryptology.Decryption(rdr["username"].ToString().TrimEnd(), 2) && password == Cryptology.Decryption(rdr["pass"].ToString().TrimEnd(),2))
                 {
                     isthere = true;
                     break;
