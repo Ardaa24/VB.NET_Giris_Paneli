@@ -27,7 +27,8 @@ namespace Giris_Panel
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
+
         }
 
         private void GirisPanel_MouseDown(object sender, MouseEventArgs e)
@@ -124,6 +125,15 @@ namespace Giris_Panel
                 MessageBox.Show("Kullanıcı Adı veya Şifre Hatalı");
             }
 
+        }
+
+        private void linkSu_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Signup signup = new Signup();
+            signup.Show();
+            
+            
         }
     }
 }
