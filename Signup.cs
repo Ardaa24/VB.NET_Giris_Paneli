@@ -26,7 +26,7 @@ namespace Giris_Panel
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+           this.Close();
         }
 
         private void txtUsername_Enter(object sender, EventArgs e)
@@ -69,65 +69,8 @@ namespace Giris_Panel
             }
         }
 
-        private void txtRePassword_Enter(object sender, EventArgs e)
-        {
-            if (txtPassword.Text == "RePassword")
-            {
-                txtPassword.Text = "";
-                txtPassword.ForeColor = Color.White;
-                txtPassword.PasswordChar = '*';
-            }
-        }
-
-        private void txtRePassword_Leave(object sender, EventArgs e)
-        {
-            char? none = null;
-            if (txtPassword.Text == "")
-            {
-                txtRePassword.Text = "RePassword";
-                txtRePassword.ForeColor = Color.Silver;
-                txtRePassword.PasswordChar = Convert.ToChar(none);
-            }
-        }
-
-        private void txtEmail_Enter(object sender, EventArgs e)
-        {
-
-            if (txtEmail.Text == "Emnail")
-            {
-                txtEmail.Text = "";
-                txtEmail.ForeColor = Color.White;
-            }
-
-        }
-
-        private void txtEmail_Leave(object sender, EventArgs e)
-        {
-            if (txtEmail.Text == "")
-            {
-                txtEmail.Text = "Email";
-                txtEmail.ForeColor = Color.Silver;
-            }
-        }
-
-        private void txtPhone_Enter(object sender, EventArgs e)
-        {
-
-            if (txtPhone.Text == "Phone")
-            {
-                txtPhone.Text = "";
-                txtPhone.ForeColor = Color.White;
-            }
-        }
-
-        private void txtPhone_Leave(object sender, EventArgs e)
-        {
-            if (txtPhone.Text == "")
-            {
-                txtPhone.Text = "Phone";
-                txtPhone.ForeColor = Color.Silver;
-            }
-        }
+     
+     
 
         private void Signup_MouseUp(object sender, MouseEventArgs e)
         {
