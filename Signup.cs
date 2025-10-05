@@ -26,7 +26,7 @@ namespace Giris_Panel
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-           this.Close();
+           Application.Exit();  
         }
 
         private void txtUsername_Enter(object sender, EventArgs e)
@@ -98,6 +98,63 @@ namespace Giris_Panel
             SqlCommand cmd = new SqlCommand("Insert into Info (username,pass,re_pass,e_mail,phone) values ('"+Cryptology.Encryption(txtUsername.Text,2)+"', '"+ Cryptology.Encryption(txtRePassword.Text,2)+"', '"+ Cryptology.Encryption(txtRePassword.Text,2)+"', '"+ Cryptology.Encryption(txtEmail.Text,2)+"', '"+ Cryptology.Encryption(txtPhone.Text,2)+"')", conn);
             cmd.ExecuteNonQuery();
             conn.Close();
+            MessageBox.Show("Your account has been created.");
+        }
+
+        private void txtRePassword_Enter(object sender, EventArgs e)
+        {
+            if (txtRePassword.Text == "RePassword")
+            {
+                txtRePassword.Text = "";
+                txtRePassword.ForeColor = Color.White;
+                txtRePassword.PasswordChar = '*';
+            }
+        }
+
+        private void txtRePassword_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtRePassword.Text))
+            {
+                txtRePassword.Text = "RePassword";
+                txtRePassword.ForeColor = Color.Silver;
+                txtRePassword.PasswordChar = '\0';
+            }
+        }
+
+        private void txtEmail_Enter(object sender, EventArgs e)
+        {
+            if (txtEmail.Text == "Email")
+            {
+                txtEmail.Text = "";
+                txtEmail.ForeColor = Color.White;
+            }
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                txtEmail.Text = "Email";
+                txtEmail.ForeColor = Color.Silver;
+            }
+        }
+
+        private void txtPhone_Enter(object sender, EventArgs e)
+        {
+            if (txtPhone.Text == "Phone")
+            {
+                txtPhone.Text = "";
+                txtPhone.ForeColor = Color.White;
+            }
+        }
+
+        private void txtPhone_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPhone.Text))
+            {
+                txtPhone.Text = "Phone";
+                txtPhone.ForeColor = Color.Silver;
+            }
         }
     }
 }
