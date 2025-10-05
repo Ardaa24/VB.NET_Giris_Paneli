@@ -26,7 +26,7 @@ namespace Giris_Panel
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-           Application.Exit();  
+            Application.Exit();
         }
 
         private void txtUsername_Enter(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace Giris_Panel
             }
         }
 
-        
+
         private void txtPassword_Leave(object sender, EventArgs e)
         {
             char? none = null;
@@ -67,38 +67,6 @@ namespace Giris_Panel
                 txtPassword.ForeColor = Color.Silver;
                 txtPassword.PasswordChar = Convert.ToChar(none);
             }
-        }
-
-     
-     
-
-        private void Signup_MouseUp(object sender, MouseEventArgs e)
-        {
-            move = false;
-        }
-
-        private void Signup_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (move)
-            {
-                this.SetDesktopLocation(MousePosition.X - mouse_x, MousePosition.Y - mouse_y);
-            }
-        }
-
-        private void Signup_MouseDown(object sender, MouseEventArgs e)
-        {
-            move = true;
-            mouse_x = e.X;
-            mouse_y = e.Y;
-        }
-
-        private void btnSignUp_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("Insert into Info (username,pass,re_pass,e_mail,phone) values ('"+Cryptology.Encryption(txtUsername.Text,2)+"', '"+ Cryptology.Encryption(txtRePassword.Text,2)+"', '"+ Cryptology.Encryption(txtRePassword.Text,2)+"', '"+ Cryptology.Encryption(txtEmail.Text,2)+"', '"+ Cryptology.Encryption(txtPhone.Text,2)+"')", conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();
-            MessageBox.Show("Your account has been created.");
         }
 
         private void txtRePassword_Enter(object sender, EventArgs e)
@@ -156,5 +124,39 @@ namespace Giris_Panel
                 txtPhone.ForeColor = Color.Silver;
             }
         }
-    }
+    
+     
+
+        private void Signup_MouseUp(object sender, MouseEventArgs e)
+        {
+            move = false;
+        }
+
+        private void Signup_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (move)
+            {
+                this.SetDesktopLocation(MousePosition.X - mouse_x, MousePosition.Y - mouse_y);
+            }
+        }
+
+        private void Signup_MouseDown(object sender, MouseEventArgs e)
+        {
+            move = true;
+            mouse_x = e.X;
+            mouse_y = e.Y;
+        }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("Insert into Info (username,pass,re_pass,e_mail,phone) values ('" + Cryptology.Encryption(txtUsername.Text, 2) + "', '" + Cryptology.Encryption(txtRePassword.Text, 2) + "', '" + Cryptology.Encryption(txtRePassword.Text, 2) + "', '" + Cryptology.Encryption(txtEmail.Text, 2) + "', '" + Cryptology.Encryption(txtPhone.Text, 2) + "')", conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            MessageBox.Show("Your account has been created.");
+        }
+
+
+    } 
 }
+
