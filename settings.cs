@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,15 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Giris_Panel
 {
     public partial class settings : Form
     {
+
+        SqlConnection conn = GirisPanel.conn;
+        internal static string username { get; set; }
         public settings()
         {
             InitializeComponent();
         }
+
+
         bool move;
         int mouse_x;
         int mouse_y;
@@ -44,6 +50,30 @@ namespace Giris_Panel
             mouse_x = e.X;
             mouse_y = e.Y;
 
+        }
+
+        private void settings_Load(object sender, EventArgs e)
+        {
+            lblUserArea.Text = username;
+            selectMail();
+            selectGuard();
+        }
+
+
+        private void selectMail()
+        {
+            SqlCommand cmd = new SqlCommand("Select e_mail from Info where  username='" + Cryptology.Encryption(username, 2) + "'",conn);
+            lblEmailArea.Text= Cryptology.Decryption(cmd.ExecuteScalar().ToString(),2);
+            conn.Close();
+
+        }
+
+        private void selectGuard()
+        {
+           SqlCommand cmd = new SqlCommand("Select active from Info where  username='" + Cryptology.Encryption(username, 2) + "'",conn);
+            conn.Open();
+           cbGuard.Checked = Convert.ToBoolean( cmd.ExecuteScalar().ToString());
+            conn.Close();
         }
     }
 }
