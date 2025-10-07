@@ -119,7 +119,7 @@ namespace Giris_Panel
             if (isthere)
             {
                 //  MessageBox.Show("Giriş Başarılı");
-                SqlCommand cmd_active = new SqlCommand("Select active from Info where  username='"+Cryptology.Encryption(username,2));
+                SqlCommand cmd_active = new SqlCommand("Select active from Info where  username='"+Cryptology.Encryption(username,2)+"'");
                 cmd_active.Connection = conn;   
                 conn.Open();
                 if (Convert.ToBoolean(cmd_active.ExecuteScalar().ToString()))
