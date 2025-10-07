@@ -75,5 +75,15 @@ namespace Giris_Panel
            cbGuard.Checked = Convert.ToBoolean( cmd.ExecuteScalar().ToString());
             conn.Close();
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand("Update Info set active='"+cbGuard.Checked.ToString().ToLower()+"' where username='"+ Cryptology.Encryption(username, 2)  + "'",conn);
+            conn.Open();    
+            cmd.ExecuteNonQuery();
+            conn.Close();   
+
+            MessageBox.Show("Settings Updated", "Program");
+        }
     }
 }
