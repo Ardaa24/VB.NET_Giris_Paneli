@@ -106,6 +106,7 @@ namespace Giris_Panel
                 if (username == Cryptology.Decryption(rdr["username"].ToString().TrimEnd(), 2) && password == Cryptology.Decryption(rdr["pass"].ToString().TrimEnd(),2))
                 {
                     isthere = true;
+                    settings.username= username;
                     break;
                 }
                 else
@@ -117,8 +118,24 @@ namespace Giris_Panel
 
             if (isthere)
             {
-                MessageBox.Show("Giriş Başarılı");
-               
+                //  MessageBox.Show("Giriş Başarılı");
+                SqlCommand cmd_active = new SqlCommand("Select active from Info where  username='"+Cryptology.Encryption(username,2));
+                cmd_active.Connection = conn;   
+                conn.Open();
+                if (Convert.ToBoolean(cmd_active.ExecuteScalar().ToString()))
+                {
+                    guard guard = new guard();
+                    guard.Show();
+                }
+
+                else
+                {
+                    settings settings = new settings();
+                    settings.Show();
+                }
+                conn.Close();
+                this.Hide();
+
             }
             else
             {
@@ -135,5 +152,7 @@ namespace Giris_Panel
             
             
         }
+
+        
     }
 }
