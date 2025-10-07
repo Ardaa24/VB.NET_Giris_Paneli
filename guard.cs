@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,6 +43,16 @@ namespace Giris_Panel
         private void guard_MouseUp(object sender, MouseEventArgs e)
         {
             move = false;
+        }
+
+        private void guard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SMS()
+        {
+            //api eklenecek
         }
     }
 }
