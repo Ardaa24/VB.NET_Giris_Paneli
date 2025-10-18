@@ -44,6 +44,8 @@ Aşağıdaki adımları izleyerek projeyi yerel ortamında çalıştırabilirsin
 
 5. Uygulama açıldığında, giriş ekranı görünür. Yeni kullanıcı kaydı için "Register / Signup" ekranına yönlenebilirsin.
 
+---
+
 Kullanılan Teknolojiler
 C# / VB.NET (projede C# kodları var gibi görünüyor)
 
@@ -62,6 +64,8 @@ Kriptografi sınıfının (örneğin Cryptology.cs) kullanılan algoritmaların�
 
 Eğer veritabanı bağlantısı kullanıyorsan, bağlantı dizesi (connection string) yapılandırılmalıdır.
 
+---
+
 Şifreleme & Güvenlik
 Projede Cryptology sınıfı altında kriptografi işlemleri bulunmakta.
 
@@ -70,6 +74,8 @@ Projede Cryptology sınıfı altında kriptografi işlemleri bulunmakta.
 Giriş (login) süreçlerinde kullanıcının girdiği şifre, aynı hash+salt işlemlerinden geçirilerek veriyle eşleştirilir.
 
 Gelecekte SSL, iki faktörlü doğrulama (2FA) gibi ilave güvenlik yöntemleri eklenebilir.
+
+---
 
 Katkıda Bulunma
 Bu projeye katkı sağlamak istersen:
@@ -86,22 +92,25 @@ Bir Pull Request (çekme isteği) oluştur.
 
 Her türlü öneri, hata bildirimi ya da iyileştirme fikri memnuniyetle karşılanır.
 
+---
+
 Lisans
 Bu proje için bir lisans bilgisi belirtilmemiş.
 Varsayılan olarak MIT, Apache 2.0 ya da başka bir açık kaynak lisansı eklemeni öneririm.
 Aşağıda örnek bir MIT lisansı:
 
-text
-Kodu kopyala
+---
+
 MIT License
 
-Copyright (c) 2025 …
+  Copyright (c) 2025 …
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 … (rest of MIT lisans metni)
 İletişim
-Proje ile ilgili sorular ya da geri bildirim için GitHub Issues bölümünden bana ulaşabilirsin.
+Proje ile ilgili sorular ya da geri bildirim için GitHub Issues bölümünden bana ulaşabilirsin. 
 
+---
 
 https://github.com/user-attachments/assets/eaf8d720-23e8-491f-85b1-f683910f4489
 
